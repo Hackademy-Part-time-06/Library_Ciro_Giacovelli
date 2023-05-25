@@ -47,18 +47,18 @@ return redirect()->route('index')->with('success', 'Creazione avvenuta con succe
  
     }
 
-    public function show(Book $book) {
+    public function show(Book $id) {
     
-            // $mybook = Book::find($book);
+            $book = Book::find($id);
     
-            // if (is_null($mybook)) {
-            //     abort(404);
-            // }
+             if (is_null($book)) {
+                 abort(404);
+             }
     
             //$mybook = Book::findOrFail($book);
     
             //return view('show', ['book' => $book]);
-            return view('books.show', compact('book'));
+          
         
     }
 

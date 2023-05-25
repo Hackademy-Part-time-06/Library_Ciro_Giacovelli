@@ -6,6 +6,7 @@
                         src="https://www.graphicsfuel.com/wp-content/uploads/2021/10/Standing-Book-Mockup-Template.jpg"
                         alt="..."></div>
                 <div class="col-md-6">
+                    <a>
                     <h1 class="display-5 fw-bolder">{{$book->name}}</h1>
                     <p>Autore: {{$book->author}} </p>
                     <p>Numero Pagine: {{$book->pages}} </p>

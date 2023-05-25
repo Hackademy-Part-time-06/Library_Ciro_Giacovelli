@@ -30,6 +30,15 @@
     </div>
 @endif
 
+
+        <a href="{{route('detail', ['book' => $book['id']])}}">
+
+        <p>{{$book['id']}} - {{$book['title']}} - {{$book['author']}}< </p>
+        
+        </a>
+                 
+
+
 </body>
 
 </html>
