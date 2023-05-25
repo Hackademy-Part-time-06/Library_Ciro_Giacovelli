@@ -16,7 +16,7 @@
                         @method('POST')
                         @csrf
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="name" name="name" type="text" value="{{old('name')}}"
+                            <input class="form-control" id="name" name="title" type="text" value="{{old('title')}}"
                                 placeholder="Inserisci titolo libro">
                             <label for="name">Nome Libro</label>
                             @error('name')
@@ -40,6 +40,16 @@
                             <input class="form-control" id="pages" name="pages" type="text" value="{{old('pages')}}"
                                 placeholder="Inserisci Numero pagine Libro">
                             <label for="pages">Numero pagine Libro</label>
+                            @error('name')
+                            <span class="text-danger">
+                                Inserisci un valore numerico obbligatorio!
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="pages" name="years" type="text" value="{{old('years')}}"
+                                placeholder="Inserisci Numero pagine Libro">
+                            <label for="pages">Anno</label>
                             @error('name')
                             <span class="text-danger">
                                 Inserisci un valore numerico obbligatorio!

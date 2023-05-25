@@ -32,15 +32,17 @@ class BooksController extends Controller
     "title" => "required|string",
     "pages" => "required|numeric",
     "author" => "required",
-    ]); 
+    "years" => "required|numeric",
+     ]); 
 
 Book::create([
-    'title' => $request->input('name'),
+    'title' => $request->input('title'),
     'author' => $request->input('author'),
     'pages' => $request->input('pages'),
+    'years' => $request->input('years'),
     ]);
 
-return redirect()->route('books.index')->with('success', 'Creazione avvenuta con successo!');
+return redirect()->route('index')->with('success', 'Creazione avvenuta con successo!');
         
     }
 
