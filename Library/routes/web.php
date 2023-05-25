@@ -15,3 +15,6 @@ use App\Http\Controllers\BooksController;
 */
 
 Route::get('/', [BooksController::class, 'index'])->name('index');
+Route::get('/crea', [BooksController::class, 'create'])->name('create');
+Route::post('/salva', [BooksController::class, 'save'])->name('save');
+Route::get('{$book}/dettagli', [BooksController::class, 'detail'])->name('detail');
