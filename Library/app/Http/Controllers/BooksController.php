@@ -43,10 +43,22 @@ Book::create([
     ]);
 
 return redirect()->route('index')->with('success', 'Creazione avvenuta con successo!');
-        
+
+ 
     }
 
-    public function show() {
+    public function show(Book $book) {
+    
+            // $mybook = Book::find($book);
+    
+            // if (is_null($mybook)) {
+            //     abort(404);
+            // }
+    
+            //$mybook = Book::findOrFail($book);
+    
+            //return view('show', ['book' => $book]);
+            return view('books.show', compact('book'));
         
     }
 
