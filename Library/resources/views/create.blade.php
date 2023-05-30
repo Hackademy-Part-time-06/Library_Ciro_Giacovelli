@@ -12,7 +12,7 @@
                         </ul>
                     </div>
                     @endif
-                    <form action="{{route('save')}}" method="POST">
+                    <form action="{{route('save')}}" method="POST" enctype="multipart/form-data">
                         @method('POST')
                         @csrf
                         <div class="form-floating mb-3">
