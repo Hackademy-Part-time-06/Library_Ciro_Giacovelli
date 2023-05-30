@@ -31,7 +31,7 @@
 @endif
 
 
-        <a href="{{route('detail', ['book' => $book['id']])}}">
+        <a href="{{route('show', ['book' => $book['id']])}}">
 
         <p>{{$book['id']}} - {{$book['title']}} - {{$book['author']}}< </p>
         

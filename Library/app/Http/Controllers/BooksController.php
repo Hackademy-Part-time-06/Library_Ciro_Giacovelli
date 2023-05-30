@@ -32,7 +32,7 @@ $path_image='';
 
 if ($request->hasFile('image') && $request->file('image')->isValid()) {
     $path_name = $request->file('image')->getClientOriginalName();
-    $path_image = $request->file('image')->storeAs('public\images\ ', $path_name);
+    $path_image = $request->file('image')->storeAs('public/images', $path_name);
 
 Book::create([
     'title' => $request->input('title'),
@@ -47,7 +47,7 @@ return redirect()->route('index')->with('success', 'Creazione avvenuta con succe
  
     }
     }
-    public function show(Book $id) {
+    public function show($id) {
     
             $book = Book::find($id);
     
@@ -57,7 +57,7 @@ return redirect()->route('index')->with('success', 'Creazione avvenuta con succe
     
 
             //$mybook = Book::findOrFail($book);
-            //return view('show', ['book' => $book]);
+        return view('show', ['book' => $book]);
           
         
     }
