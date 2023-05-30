@@ -57,6 +57,12 @@
                             @enderror
                         </div>
 
+                        <div class="mb-3">
+                            <label for="pages">Immagine del Libro</label>
+                            <input class="form-control" id="image" name="image" type="file"
+                                value="{{old('image')}}">
+                        </div>
+
                         <div class="d-grid gap-3">
                             <button class="btn btn-primary btn-lg p-2" type="submit">Salva</button>
                         </div>
