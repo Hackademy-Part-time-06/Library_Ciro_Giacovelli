@@ -11,12 +11,24 @@
 
 </head>
 
-
 <body class="antialiased">
+    <x-navbar />
     <ul>
-        @foreach ($books as $book)
-        <li>{{$book['title']}} - {{$book['author']}}</li>
-        @endforeach
+        @forelse ($books as $book)
+        <li>
+        <a href="{{route('show', ['book' => $book['id']])}}">
+
+        <p>{{$book['id']}} - {{$book['title']}} - {{$book['author']}}< </p>
+            
+        </a>
+        </li>
+        @empty
+
+        Nessun Libro
+            
+        @endforelse
+
+        
     </ul>
  
 
@@ -31,11 +43,7 @@
 @endif
 
 
-        <a href="{{route('show', ['book' => $book['id']])}}">
-
-        <p>{{$book['id']}} - {{$book['title']}} - {{$book['author']}}< </p>
-        
-        </a>
+       
                  
 
 
