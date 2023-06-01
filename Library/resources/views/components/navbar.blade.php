@@ -10,13 +10,12 @@
             <a class="nav-link active" aria-current="page" href="{{route('index')}}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Inserisci Libro</a>
+            <a class="nav-link" href="{{route('create')}}">Inserisci Libro</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown
             </a>
-           
          <ul class="dropdown-menu">
           @auth
           <form method="POST" action="{{route('logout')}}">

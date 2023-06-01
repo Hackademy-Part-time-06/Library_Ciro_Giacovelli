@@ -12,7 +12,15 @@ class BooksController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * 
+     * 
      */
+
+     public function __construct()
+     {
+         $this->middleware('auth')->except('index');
+     }
+
     public function index()
     {
          
@@ -60,5 +68,7 @@ return redirect()->route('index')->with('success', 'Creazione avvenuta con succe
           
         
     }
+
+  
 }
 
