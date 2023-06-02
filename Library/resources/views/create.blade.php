@@ -1,3 +1,5 @@
+@vite(['resources\css\app.css', 'resources\js\app.js'])
+
 <section class="py-5">
     <div class="container px-5">
         <div class=" rounded-3 py-5 px-4 px-md-5 mb-5">
@@ -64,7 +66,7 @@
                         </div>
 
                         <div class="d-grid gap-3">
-                            <button class="btn btn-primary btn-lg p-2" type="submit">Salva</button>
+                            <button class="btn btn-dark btn-lg p-2" type="submit">Salva</button>
                         </div>
                     </form>
                 </div>
