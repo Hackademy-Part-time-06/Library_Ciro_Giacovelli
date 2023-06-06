@@ -19,7 +19,7 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">{{$book['id']}} - {{$book['title']}}</h5>
+                  <h5 class="card-title">{{$book['title']}}</h5>
                   <h5 class="card-title">{{$book['author']}}</h5>
                   <p class="card-text"></p>
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">

@@ -13,7 +13,8 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        //
+        $author= Author::all();
+        return view ('index', ['author' => $author]);
     }
 
     /**

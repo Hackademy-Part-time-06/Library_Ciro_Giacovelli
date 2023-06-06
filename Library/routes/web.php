@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BooksController;
 
@@ -13,6 +14,7 @@ use App\Http\Controllers\BooksController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::redirect('/','/book');
 Route::get('/book', [BooksController::class, 'index'])->name('index');
 Route::get('/book/crea', [BooksController::class, 'create'])->name('create');
@@ -22,3 +24,21 @@ Route::get('/book/{book}/dettagli', [BooksController::class, 'show'])->name('sho
 Route::get('/book/{book}/modifica', [BooksController::class, 'edit'])->name('edit');
 Route::put('/book/{book}/aggiorna', [BooksController::class, 'update'])->name('update');
 Route::delete('/book/{book}', [BooksController::class, 'destroy'])->name('destroy');
+
+/*
+Route::resource('book', BooksController::class, [
+
+    'names' => [
+      'index' => 'index',
+      'store' => 'store',
+      'create' => 'create',
+      'show' => 'show',
+      'edit' => 'edit',
+      'update' => 'update',
+      'destroy' => 'destroy',
+    ]
+  ]);
+*/
+//Route::resource('book', BooksController::class);
+
+Route::resource('author', AuthorController::class);
