@@ -69,6 +69,38 @@ return redirect()->route('index')->with('success', 'Creazione avvenuta con succe
         
     }
 
+    public function edit(Book $book)
+    {
+        return view('edit', compact('book'));
+    }
+
+    public function update(BookRequest $request, Book $book)
+    {
+        $path_image= $book->image;
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $path_name = $request->file('image')->getClientOriginalName();
+            $path_image = $request->file('image')->storeAs('public/images', $path_name);
+
+
+    }
+    $book->update([
+
+    'title' => $request->input('title'),
+    'author' => $request->input('author'),
+    'pages' => $request->input('pages'),
+    'years' => $request->input('years'),
+    'image' => $path_image,
+    ]);
+
+    return redirect()->route('index')->with('success', 'Modifica avvenuta con successo!');
+}
+
+    public function destroy(Book $book) {
+
+        $book->delete();
+        return redirect()->route('index')->with('success', 'Cancellazione avvenuta con successo!');
+
+    }
   
 }
 

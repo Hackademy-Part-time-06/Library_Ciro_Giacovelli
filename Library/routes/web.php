@@ -13,8 +13,12 @@ use App\Http\Controllers\BooksController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::redirect('/','/book');
+Route::get('/book', [BooksController::class, 'index'])->name('index');
+Route::get('/book/crea', [BooksController::class, 'create'])->name('create');
+Route::post('/book/salva', [BooksController::class, 'save'])->name('save');
+Route::get('/book/{book}/dettagli', [BooksController::class, 'show'])->name('show');
 
-Route::get('/', [BooksController::class, 'index'])->name('index');
-Route::get('/crea', [BooksController::class, 'create'])->name('create');
-Route::post('/salva', [BooksController::class, 'save'])->name('save');
-Route::get('{book}/dettagli', [BooksController::class, 'show'])->name('show');
+Route::get('/book/{book}/modifica', [BooksController::class, 'edit'])->name('edit');
+Route::put('/book/{book}/aggiorna', [BooksController::class, 'update'])->name('update');
+Route::delete('/book/{book}', [BooksController::class, 'destroy'])->name('destroy');

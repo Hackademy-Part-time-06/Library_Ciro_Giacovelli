@@ -22,6 +22,19 @@
                   <h5 class="card-title">{{$book['id']}} - {{$book['title']}}</h5>
                   <h5 class="card-title">{{$book['author']}}</h5>
                   <p class="card-text"></p>
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a href="{{route('show' , ['book' => $book['id']])}}"
+                        class="btn btn-primary me-md-2">Visualizza</a>
+                        @auth
+                    <a href="{{route('edit' , ['book' => $book['id']])}}"
+                        class="btn btn-warning me-md-2">Modifica</a>
+                      <form action="{{route('destroy' , ['book'=>$book['id']])}}" method="POST">
+                          @method('DELETE')
+                          @csrf
+                          <button type="submit" class="btn btn-danger">Cancella Libro</button>
+                      </form>
+                        @endauth
+                </div>
                 </div>
               </div>
             </div>

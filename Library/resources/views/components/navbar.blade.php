@@ -9,10 +9,10 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{route('index')}}">Home</a>
           </li>
+          @auth
           <li class="nav-item">
             <a class="nav-link active" href="{{route('create')}}">Inserisci Libro</a>
           </li>
-          @auth
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Benvenuto {{Auth::user()->name}}
