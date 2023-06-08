@@ -29,10 +29,10 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="author" name="author" type="text"
-                                value="{{$book->author}}" placeholder="nome autore">
-                            <label for="author">Nuovo Autore</label>
-                            @error('author')
+                            <input class="form-control" id="author_id" name="author_id" type="text"
+                                value="{{$book->author_id}}" placeholder="nome autore">
+                            <label for="author_id">Nuovo Autore</label>
+                            @error('author_id')
                             <span class="text-danger">
                                 Autore obbligatorio!
                             </span>

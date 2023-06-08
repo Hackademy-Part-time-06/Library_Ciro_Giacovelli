@@ -3,6 +3,6 @@
     <body class="antialiased">
     <ul>
         @foreach ($books as $book)
-        <li>{{$book['name']}} - {{$book['author']}}</li>
+        <li>{{$book['name']}} - {{$book['author_id']}}</li>
         @endforeach
     </ul>

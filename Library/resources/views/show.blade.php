@@ -12,7 +12,7 @@
                     <a>
 
                     <h1 class="display-5 fw-bolder">{{$book->name}}</h1>
-                    <p>Autore: {{$book->author}} </p>
+                    <p>Autore: {{$book->author_id}} </p>
                     <p>Numero Pagine: {{$book->pages}} </p>
 
                 <a href="{{ route('index') }}" class="btn btn-dark"> Torna Indietro</a>
