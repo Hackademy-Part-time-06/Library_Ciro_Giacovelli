@@ -11,6 +11,12 @@ class AuthorController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth')->only('create', 'edit');
+    }
+
     public function index()
     {
         $author= Author::all();
@@ -22,7 +28,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        //
+        return view('authors.create');
     }
 
     /**
@@ -30,7 +36,13 @@ class AuthorController extends Controller
      */
     public function store(StoreAuthorRequest $request)
     {
-        //
+        Author::create([
+            'name' => $request->input('name'),
+            'surname' => $request->input('surname'),
+            'birthday' => $request->birthday,
+        ]);
+
+        return redirect()->route('authors.index')->with('success', 'Creazione avvenuta con successo!');
     }
 
     /**
@@ -38,7 +50,7 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
-        //
+        return view('authors.show', compact('author'));
     }
 
     /**
@@ -46,7 +58,8 @@ class AuthorController extends Controller
      */
     public function edit(Author $author)
     {
-        //
+        return view('authors.edit', compact('author'));
+
     }
 
     /**
@@ -54,7 +67,13 @@ class AuthorController extends Controller
      */
     public function update(UpdateAuthorRequest $request, Author $author)
     {
-        //
+        $author->update([
+            'name' => $request->input('name'),
+            'surname' => $request->input('surname'),
+            'birthday' => $request->birthday,
+        ]);
+
+        return redirect()->route('authors.index')->with('success', 'Modifica avvenuta con successo!');
     }
 
     /**
@@ -62,6 +81,7 @@ class AuthorController extends Controller
      */
     public function destroy(Author $author)
     {
-        //
+        $author->delete();
+        return redirect()->route('authors.index')->with('success', 'Cancellazione avvenuta con successo!');
     }
 }
