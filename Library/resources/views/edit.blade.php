@@ -29,9 +29,12 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="author_id" name="author_id" type="text"
-                                value="{{$book->author_id}}" placeholder="nome autore">
-                            <label for="author_id">Nuovo Autore</label>
+                            <select class="form-control" id="author_id" name="author_id">
+                                @foreach ($authors as $author)
+                                <option @if ($book->author_id == $author->id) selected @endif
+                                    value="{{$author->id}}">{{$author->name}} {{$author->surname}}</option>
+                                @endforeach
+                            </select>
                             @error('author_id')
                             <span class="text-danger">
                                 Autore obbligatorio!

@@ -11,13 +11,13 @@ class AuthorController extends Controller
    
     public function __construct()
     {
-        $this->middleware('auth')->only('create', 'edit');
+        $this->middleware('auth');
     }
 
     public function index()
     {
-        $author= Author::all();
-        return view ('index', ['author' => $author]);
+        $authors= Author::all();
+        return view ('authors.index', ['authors' => $authors]);
     }
 
    
@@ -35,7 +35,7 @@ class AuthorController extends Controller
             'birthday' => $request->birthday,
         ]);
 
-        return redirect()->route('authors.index')->with('success', 'Creazione avvenuta con successo!');
+        return redirect()->route('author.index')->with('success', 'Creazione avvenuta con successo!');
     }
 
 
@@ -60,12 +60,12 @@ class AuthorController extends Controller
             'birthday' => $request->birthday,
         ]);
 
-        return redirect()->route('authors.index')->with('success', 'Modifica avvenuta con successo!');
+        return redirect()->route('author.index')->with('success', 'Modifica avvenuta con successo!');
     }
 
     public function destroy(Author $author)
     {
         $author->delete();
-        return redirect()->route('authors.index')->with('success', 'Cancellazione avvenuta con successo!');
+        return redirect()->route('author.index')->with('success', 'Cancellazione avvenuta con successo!');
     }
 }

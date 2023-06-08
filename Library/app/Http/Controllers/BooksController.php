@@ -32,7 +32,7 @@ class BooksController extends Controller
     public function create() {
 
         $authors = Author::all();
-        return view('books.create', compact('authors'));
+        return view('create', compact('authors'));
         return view ('create');
 
     }
@@ -47,7 +47,7 @@ if ($request->hasFile('image') && $request->file('image')->isValid()) {
 
 Book::create([
     'title' => $request->input('title'),
-    'author' => $request->input('author'),
+    'author_id' => $request->input('author_id'),
     'pages' => $request->input('pages'),
     'years' => $request->input('years'),
     'image' => $path_image,
