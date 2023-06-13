@@ -47,7 +47,7 @@ if ($request->hasFile('image') && $request->file('image')->isValid()) {
     $path_name = $request->file('image')->getClientOriginalName();
     $path_image = $request->file('image')->storeAs('public/images', $path_name);
 
-Book::create([
+$data= Book::create([
     'title' => $request->input('title'),
     'author_id' => $request->input('author_id'),
     'category_id' => $request->input('category_id'),
@@ -55,6 +55,8 @@ Book::create([
     'years' => $request->input('years'),
     'image' => $path_image,
     ]);
+
+    $data->categories()->attach($request->categories);
 
 return redirect()->route('index')->with('success', 'Creazione avvenuta con successo!');
 
