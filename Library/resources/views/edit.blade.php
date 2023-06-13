@@ -18,7 +18,7 @@
                         @method('PUT')
                         @csrf
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="name" name="title" type="text" value="{{$book->name}}"
+                            <input class="form-control" id="name" name="title" type="text" value="{{$book->title}}"
                                 placeholder="Inserisci titolo libro">
                             <label for="name">Nuovo Titolo</label>
                             @error('name')
@@ -27,7 +27,6 @@
                             </span>
                             @enderror
                         </div>
-
                         <div class="form-floating mb-3">
                             <select class="form-control" id="author_id" name="author_id">
                                 @foreach ($authors as $author)
@@ -43,11 +42,14 @@
                         </div>
                         @foreach ($categories as $category)
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name='categories[]' value="{{$category->id}}" id="category_id">
-                            <label class="form-check-label" for="category_id">
+                            <input class="form-check-input" 
+                            @checked($book->categories->contains($category->id))
+                            type="checkbox"
+                            name="categories[]" value="{{$category->id}}" id="categories-{{$category->id}}">
+                            <label class="form-check-label" for="categories-{{$category->id}}">
                                 {{$category->name}}
                             </label>
-                          </div>
+                        </div>
                         @endforeach
                         <div class="form-floating mb-3">
                             <input class="form-control" id="pages" name="pages" type="text" value="{{$book->pages}}"
@@ -60,7 +62,7 @@
                             @enderror
                         </div>
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="pages" name="years" type="text" value="{{$book->year}}"
+                            <input class="form-control" id="pages" name="years" type="text" value="{{$book->years}}"
                                 placeholder="Inserisci Numero pagine Libro">
                             <label for="pages">Anno</label>
                             @error('name')

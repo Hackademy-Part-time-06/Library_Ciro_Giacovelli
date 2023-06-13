@@ -21,11 +21,9 @@
                 <div class="card-body">
                   <h5 class="card-title">{{$book['title']}}</h5>
                   <h5 class="card-title">{{$book['author_id']}}</h5>
-                  <ul>
+                    <ul>
                     @foreach ($book->categories as $category)
                     <li>{{$category->name}}</li>
-                    @empty
-                    Nessuna categoria
                     @endforeach
                   </ul>
                   <p class="card-text"></p>

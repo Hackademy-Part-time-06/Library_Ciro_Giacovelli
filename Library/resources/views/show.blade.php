@@ -14,7 +14,12 @@
                     <h1 class="display-5 fw-bolder">{{$book->name}}</h1>
                     <p>Autore: {{$book->author->surname}} </p>
                     <p>Numero Pagine: {{$book->pages}} </p>
-                    <p>Numero Pagine: {{$category->name}} </p>
+                    <ul>
+                        @foreach ($book->categories as $category)
+                        <li>{{$category->name}}</li>
+                        @endforeach
+                    </ul>
+
                 <a href="{{ route('index') }}" class="btn btn-dark"> Torna Indietro</a>
                 </div>
             </div>

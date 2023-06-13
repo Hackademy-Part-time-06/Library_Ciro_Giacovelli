@@ -7,6 +7,7 @@ use App\Models\Author;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\BookRequest;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorebooksRequest;
 use App\Http\Requests\UpdatebooksRequest;
 
@@ -46,14 +47,15 @@ $path_image='';
 if ($request->hasFile('image') && $request->file('image')->isValid()) {
     $path_name = $request->file('image')->getClientOriginalName();
     $path_image = $request->file('image')->storeAs('public/images', $path_name);
-
+}
 $data= Book::create([
     'title' => $request->input('title'),
     'author_id' => $request->input('author_id'),
-    'category_id' => $request->input('category_id'),
+    'category_id' =>$request->input('category_id'),
     'pages' => $request->input('pages'),
     'years' => $request->input('years'),
     'image' => $path_image,
+    // 'user_id' => Auth::user()->id,
     ]);
 
     $data->categories()->attach($request->categories);
@@ -61,7 +63,6 @@ $data= Book::create([
 return redirect()->route('index')->with('success', 'Creazione avvenuta con successo!');
 
  
-    }
     }
     public function show($id) {
     
@@ -102,12 +103,17 @@ return redirect()->route('index')->with('success', 'Creazione avvenuta con succe
     'years' => $request->input('years'),
     'image' => $path_image,
     ]);
+    
+    $book->categories()->detach();
+    $book->categories()->attach($request->categories);
+    // $book->categories()->sync($request->categories);
 
     return redirect()->route('index')->with('success', 'Modifica avvenuta con successo!');
 }
 
     public function destroy(Book $book) {
-
+        
+        $book->categories()->detach();
         $book->delete();
         return redirect()->route('index')->with('success', 'Cancellazione avvenuta con successo!');
 
