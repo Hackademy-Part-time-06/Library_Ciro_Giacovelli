@@ -42,18 +42,14 @@
                             </span>
                             @enderror
                         </div>
+                        @foreach ($categories as $category)
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                              Default checkbox
+                            <input class="form-check-input" type="checkbox" name='categories[]' value="{{$category->id}}" id="category_id">
+                            <label class="form-check-label" for="category_id">
+                                {{$category->name}}
                             </label>
                           </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                            <label class="form-check-label" for="flexCheckChecked">
-                              Checked checkbox
-                            </label>
-                          </div>
+                        @endforeach
                         <div class="form-floating mb-3">
                             <input class="form-control" id="pages" name="pages" type="text" value="{{old('pages')}}"
                                 placeholder="Inserisci Numero pagine Libro">
