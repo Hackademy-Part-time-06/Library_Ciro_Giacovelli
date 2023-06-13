@@ -51,7 +51,7 @@ if ($request->hasFile('image') && $request->file('image')->isValid()) {
 $data= Book::create([
     'title' => $request->input('title'),
     'author_id' => $request->input('author_id'),
-    'category_id' =>$request->input('category_id'),
+    // 'category_id' =>$request->input('category_id'),
     'pages' => $request->input('pages'),
     'years' => $request->input('years'),
     'image' => $path_image,

@@ -12,11 +12,13 @@
     <x-navbar />
         @forelse ($books as $book)
         <a href="{{route('show', ['book' => $book['id']])}}">
+        
         <div class="card mb-3 mt-4 ms-4" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
                 <img src="{{Storage::url($book->image)}}" class="img-fluid rounded-start" alt="...">
               </div>
+            </a>
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title">{{$book['title']}}</h5>
@@ -44,7 +46,7 @@
               </div>
             </div>
           </div>
-        </a>
+        
         
         @empty
 
