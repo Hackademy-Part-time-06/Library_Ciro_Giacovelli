@@ -13,6 +13,12 @@
           <li class="nav-item">
             <a class="nav-link active" href="{{route('create')}}">Inserisci Libro</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{route('author.store')}}">Inserisci Autore</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{route('category.store')}}">Inserisci Categoria</a>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Benvenuto {{Auth::user()->name}}
@@ -36,8 +42,13 @@
               <li><a class="dropdown-item" href="{{ route('register') }}">Registrati</a></li>
             </ul>
           </li>
-          @endauth
         </ul>
+        @endauth
       </div>
+      <form class="d-flex" method="POST" action="{{route ('search')}} " role="search">
+        @csrf
+          <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Cerca Libro">
+          <button class="btn btn-outline-success" type="submit">Cerca</button>
+        </form>
     </div>
   </nav>

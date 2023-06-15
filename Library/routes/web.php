@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\AuthorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BooksController;
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +21,10 @@ Route::get('/book', [BooksController::class, 'index'])->name('index');
 Route::get('/book/crea', [BooksController::class, 'create'])->name('create');
 Route::post('/book/salva', [BooksController::class, 'save'])->name('save');
 Route::get('/book/{book}/dettagli', [BooksController::class, 'show'])->name('show');
-
 Route::get('/book/{book}/modifica', [BooksController::class, 'edit'])->name('edit');
 Route::put('/book/{book}/aggiorna', [BooksController::class, 'update'])->name('update');
 Route::delete('/book/{book}', [BooksController::class, 'destroy'])->name('destroy');
+Route::post('/book/cerca', [BooksController::class, 'search'])->name('search');
 
 /*
 Route::resource('book', BooksController::class, [
@@ -42,3 +43,4 @@ Route::resource('book', BooksController::class, [
 //Route::resource('book', BooksController::class);
 
 Route::resource('author', AuthorController::class);
+Route::resource('category', CategoryController::class);

@@ -118,6 +118,15 @@ return redirect()->route('index')->with('success', 'Creazione avvenuta con succe
         return redirect()->route('index')->with('success', 'Cancellazione avvenuta con successo!');
 
     }
+
+    public function search(Request $request){
+
+    $books=Book::where('title', $request->search)->get();
+
+    // where('name', 'like', 'T%')
+       
+       return view ('index', ['books' => $books]);
+    }
   
 }
 
